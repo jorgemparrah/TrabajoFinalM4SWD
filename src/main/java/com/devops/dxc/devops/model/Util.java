@@ -36,6 +36,19 @@ public class Util {
 			return (int) (ahorro * 0.1);
 		}
 	}
+	
+	 /**
+	 * Método para cacular el saldo restantes, despues de haber solicitado el 10% del ahorro en la AFP. 
+	 * Las reglas de negocio se pueden conocer en
+	 * https://www.previsionsocial.gob.cl/sps/preguntas-frecuentes-nuevo-retiro-seguro-10/
+	 * 
+	 * @param ahorro
+	 * @param dxc
+	 * @return
+	 */
+	public static int getSaldo(int ahorro, int dxc) {
+		return (int) (ahorro - dxc);
+	}	
 
 	/**
 	 * Método que retorna el valor de la UF. Este método debe ser refactorizado por
