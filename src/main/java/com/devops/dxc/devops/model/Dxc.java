@@ -30,7 +30,7 @@ public class Dxc implements Serializable{
 		this.dxc = dxc;
 	}
 	public int getSaldo() {
-		return saldo;
+		return Util.getSaldo(ahorro,getDxc());
 	}
 	public void setSaldo(int saldo) {
 		this.saldo = saldo;
