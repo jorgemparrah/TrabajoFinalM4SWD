@@ -62,7 +62,7 @@ class DevopsApplicationTests {
 	@Test
 	@DisplayName("MONTO MAXIMO DEL 10%")
 	public void whenAssertingMontoMaximo() {
-		assertTrue(UTIL.getDxc(100000000, 3000000) == (150 * UTIL.getUf()), "5 is greater the 4");
+		assertTrue(UTIL.getDxc(100000000, 3000000) == (150 * UTIL.getUf()), "monto maximo permitido");
 
 	}
 
