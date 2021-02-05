@@ -51,6 +51,31 @@ public class Util {
 	}	
 
 	/**
+	 * Método para cacular el impuesto a pagar.
+	 * Las reglas de negocio se pueden conocer en
+	 * https://www.previsionsocial.gob.cl/sps/preguntas-frecuentes-nuevo-retiro-seguro-10/
+	 * 
+	 * @param sueldo
+	 * @param dxc
+	 * @return
+	 */
+	public static int getImpuesto(int sueldo, int dxc) {
+		if ((sueldo * 12 >= 17864280) && (sueldo * 12 <= 29773800)) {
+			return (int) (dxc * 0.08);
+		} else if ((sueldo * 12 >= 29773801) && (sueldo * 12 <= 41600000)) {
+			return (int) (dxc * 0.135);
+		} else if ((sueldo * 12 >= 41600001) && (sueldo * 12 <= 53500000)) {
+			return (int) (dxc * 0.23);
+		} else if ((sueldo * 12 >= 53500001) && (sueldo * 12 <= 71400000)) {
+			return (int) (dxc * 0.304);
+		} else if (sueldo * 12 > 71400000) {
+			return (int) (dxc * 0.35);
+		} else {
+			return (int) 0;
+		}
+	}	
+	
+	/**
 	 * Método que retorna el valor de la UF. Este método debe ser refactorizado por
 	 * una integración a un servicio que retorne la UF en tiempo real. Por ejemplo
 	 * mindicador.cl
