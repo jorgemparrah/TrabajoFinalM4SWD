@@ -8,11 +8,24 @@ import org.mockito.Mock;
 
 class RestDataTest {
 
-
 	@Test
 	void testGetData() {
 		RestData restData = new RestData();
-		assertEquals(600000,restData.getData("600000", "2000000").getSueldo() );
+		assertEquals(600000, restData.getData("600000", "2000000").getSueldo());
+	}
+
+	@Test
+	void testNumberFormatException() {
+		RestData restData = new RestData();
+
+		assertThrows(NumberFormatException.class, () -> {
+			restData.getData("ahorro", "2000000").getSueldo();
+		});
+
+		assertThrows(NumberFormatException.class, () -> {
+			restData.getData("2000000", "sueldo").getSueldo();
+		});
+
 	}
 
 }
