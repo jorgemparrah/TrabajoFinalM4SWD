@@ -78,21 +78,5 @@ class DevopsApplicationTests {
 		assertTrue(UTIL.getDxc(100000000, 3000000) == (150 * UTIL.getUf()), "monto maximo permitido");
 
 	}
-	
-	private final static Logger LOGGER = Logger.getLogger("devops.subnivel.Modelo");
-	
-	@Test
-	@DisplayName("¿2222?")
-	public void whenAssertingRetirarTodo2() {
-		
-		//LOGGER.log(Level.INFO, "---->: " + UTIL.getDxc(555555,0));
-		
-		
-	}
-	
-	
-
-    
-	
 
 }
