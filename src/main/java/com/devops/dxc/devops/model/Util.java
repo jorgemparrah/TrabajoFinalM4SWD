@@ -83,13 +83,14 @@ public class Util {
 	 * @return
 	 */
 	public static int getUf() {
-
+		try {
+		
 		RestTemplate restTemplate = new RestTemplate();
 
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Date date = new Date();
 
-		try {
+		
 			Uf valor = restTemplate.getForObject((new StringBuilder()).append("https://mindicador.cl/api/uf/")
 					.append(dateFormat.format(date)).toString(), Uf.class);
 

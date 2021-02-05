@@ -14,6 +14,10 @@ public class Uf {
 	public String getAutor() {
 		return autor;
 	}
+	
+	public String setAutor(String autor) {
+		return this.autor = autor;
+	}
 
 	public String getVersion() {
 		return version;

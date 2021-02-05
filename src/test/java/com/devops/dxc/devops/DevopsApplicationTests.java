@@ -1,15 +1,28 @@
 package com.devops.dxc.devops;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.devops.dxc.devops.model.Util;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static java.time.Duration.ofSeconds;
+
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DynamicTest;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @SpringBootTest
 class DevopsApplicationTests {
@@ -22,7 +35,7 @@ class DevopsApplicationTests {
 	@Test
 	@DisplayName("NO EXCEDE TIMEOUT CALCULO UF API")
 	public void whenAssertingTimeout_thenNotExceeded() {
-		assertTimeout(ofSeconds(3), () -> {
+		assertTimeout(ofSeconds(6), () -> {
 			UTIL.getUf();
 		});
 	}
@@ -65,5 +78,21 @@ class DevopsApplicationTests {
 		assertTrue(UTIL.getDxc(100000000, 3000000) == (150 * UTIL.getUf()), "monto maximo permitido");
 
 	}
+	
+	private final static Logger LOGGER = Logger.getLogger("devops.subnivel.Modelo");
+	
+	@Test
+	@DisplayName("¿2222?")
+	public void whenAssertingRetirarTodo2() {
+		
+		//LOGGER.log(Level.INFO, "---->: " + UTIL.getDxc(555555,0));
+		
+		
+	}
+	
+	
+
+    
+	
 
 }
