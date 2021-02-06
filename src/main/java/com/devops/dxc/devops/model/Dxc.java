@@ -11,20 +11,22 @@ public class Dxc implements Serializable{
 	
 	private int sueldo;
 	private int ahorro;
+	private double uf;
 
-	public Dxc(int ahorro, int sueldo){
+	public Dxc(int ahorro, int sueldo, double uf){
 		this.ahorro = ahorro;
 		this.sueldo = sueldo;
+		this.uf = uf;
 	}
 
 	public int getDxc() {
-		return Util.getDxc(ahorro,sueldo);
+		return Util.getDxc(ahorro,sueldo, uf);
 	}
 	public int getSaldo() {
-		return Util.getSaldo(ahorro,getDxc());
+		return Util.getSaldo(ahorro, getDxc());
 	}
 	public int getImpuesto() {
-		return Util.getImpuesto(sueldo,getDxc());
+		return Util.getImpuesto(sueldo, getDxc());
 	}
 	
 	public int getSueldo() {

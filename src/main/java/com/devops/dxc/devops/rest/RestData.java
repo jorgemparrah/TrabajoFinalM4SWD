@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devops.dxc.devops.model.Dxc;
+import com.devops.dxc.devops.model.Util;
 import com.devops.dxc.devops.model.Validation;
 
 @RestController
@@ -26,7 +27,7 @@ public class RestData {
 		int ahorroInt = Validation.validate(ahorro);
 		int sueldoInt = Validation.validate(sueldo);
 		LOGGER.log(Level.INFO, "Calcular - Ahorro [{0}] - Sueldo[{1}]", new Object[]{ ahorroInt, sueldoInt});
-		Dxc response = new Dxc(ahorroInt, sueldoInt);
+		Dxc response = new Dxc(ahorroInt, sueldoInt, Util.getUf());
 		return response;
 	}
 }

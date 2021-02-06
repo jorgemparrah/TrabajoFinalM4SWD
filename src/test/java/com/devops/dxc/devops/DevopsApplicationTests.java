@@ -19,6 +19,7 @@ import com.devops.dxc.devops.model.Util;
 @SpringBootTest
 class DevopsApplicationTests {
 
+	private final double UF = 30000;
 	private final String CONSULTARUT = "8388316-2";
 	private final List<String> AFILIADOS = Arrays.asList("13706546-0", "13527931-5", "8388316-2");
 	private final List<String> DEUDORES = Arrays.asList("11013725-7", "13706546-0", "13527931-5", "8388316-2");
@@ -58,13 +59,13 @@ class DevopsApplicationTests {
 	@Test
 	@DisplayName("¿PUEDO RETIRAR TODOS MIS AHORROS?")
 	public void whenAssertingRetirarTodo() {
-		assertEquals(900000, Util.getDxc(900000, 600000));
+		assertEquals(900000, Util.getDxc(900000, 600000, UF));
 	}
 
 	@Test
 	@DisplayName("¿PUEDO REALIZAR OTRO RETIRO DEL 10% ?")
 	public void whenAssertingRealizarOtroRetiro() {
-		assertEquals(900000, Util.getDxc(900000, 600000));
+		assertEquals(900000, Util.getDxc(900000, 600000, UF));
 		assertThat(AFILIADOS, hasItems(CONSULTARUT));
 
 	}
@@ -72,7 +73,8 @@ class DevopsApplicationTests {
 	@Test
 	@DisplayName("MONTO MAXIMO DEL 10%")
 	public void whenAssertingMontoMaximo() {
-		assertTrue(Util.getDxc(100000000, 3000000) == (150 * Util.getUf()), "monto maximo permitido");
+		
+		assertTrue(Util.getDxc(100000000, 3000000, UF) == (150 * UF), "monto maximo permitido");
 
 	}
 

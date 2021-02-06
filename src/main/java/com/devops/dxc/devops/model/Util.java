@@ -21,13 +21,13 @@ public class Util {
 	 * @param sueldo
 	 * @return
 	 */
-	public static int getDxc(int ahorro, int sueldo) {
-		if (((ahorro * 0.1) / getUf()) > 150) {
-			return (int) (150 * getUf());
-		} else if ((ahorro / getUf()) <= 35) {
+	public static int getDxc(int ahorro, int sueldo, double uf) {
+		if (((ahorro * 0.1) / uf) > 150) {
+			return (int) (150 * uf);
+		} else if ((ahorro / uf) <= 35) {
 			return (int) ahorro;
-		} else if ((ahorro * 0.1 / getUf()) <= 35) {
-			return (int) (35 * getUf());
+		} else if ((ahorro * 0.1 / uf) <= 35) {
+			return (int) (35 * uf);
 		} else {
 			return (int) (ahorro * 0.1);
 		}

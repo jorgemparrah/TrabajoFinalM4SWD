@@ -7,16 +7,17 @@ import org.junit.jupiter.api.Test;
 
 class DxcTest {
 
+	public static final double UF = 30000;
 	public static final int AHORRO = 2000000;
 	public static final int SUELDO = 600000;
 	public static final int IMPUESTO = 0;
 	public static final int CONIMPUESTO = 1529692;
-	public static final int SALDO = 1000000;
+	public static final int SALDO = 950000;
 	private Dxc dxc;
 
 	@BeforeEach
 	public void setUp() {
-		dxc = new Dxc(2000000, 600000);
+		dxc = new Dxc(2000000, 600000, UF);
 	}
 
 	@Test
