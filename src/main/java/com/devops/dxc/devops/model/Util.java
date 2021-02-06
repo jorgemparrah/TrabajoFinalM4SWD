@@ -82,7 +82,7 @@ public class Util {
 	 * 
 	 * @return
 	 */
-	public static int getUf() {
+	public static double getUf() {
 		try {
 		
 		RestTemplate restTemplate = new RestTemplate();
@@ -96,7 +96,7 @@ public class Util {
 
 			LOGGER.log(Level.INFO, "Valor Uf: " + valor.getSerie().get(0).getValor());
 
-			return (int) valor.getSerie().get(0).getValor();
+			return valor.getSerie().get(0).getValor();
 
 		} catch (Exception e) {
 			return 29000;

@@ -60,15 +60,11 @@ public class Uf {
 	}
 
 	static class Serie {
+		
 		private double valor;
-		private String fecha;
 
 		public double getValor() {
 			return valor;
-		}
-
-		public String getFecha() {
-			return fecha;
 		}
 
 	}
