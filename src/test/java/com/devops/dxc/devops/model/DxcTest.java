@@ -21,32 +21,14 @@ class DxcTest {
 
 	@Test
 	public void testDxc() throws Exception {
-
 		assertEquals(AHORRO, dxc.getAhorro());
 		assertEquals(SUELDO, dxc.getSueldo());
-
 	}
 
 	@Test
 	public void testImpuesto() throws Exception {
 		assertEquals(IMPUESTO, dxc.getImpuesto());
 		assertEquals(SALDO, dxc.getSaldo());
-
 	}
 	
-	@Test
-	public void testSets() throws Exception {
-		dxc = new Dxc();
-		dxc.setAhorro(AHORRO);
-		dxc.setSueldo(SUELDO);
-		dxc.setSaldo(SALDO);
-		dxc.setImpuesto(CONIMPUESTO);
-		
-		assertEquals(IMPUESTO, dxc.getImpuesto());
-		assertEquals(SALDO, dxc.getSaldo());
-		assertEquals(AHORRO, dxc.getAhorro());
-		assertEquals(SUELDO, dxc.getSueldo());
-
-	}
-
 }
