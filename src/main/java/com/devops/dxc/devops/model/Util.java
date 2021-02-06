@@ -2,9 +2,6 @@ package com.devops.dxc.devops.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,21 +22,20 @@ public class Util {
 	 * @return
 	 */
 	public static int getDxc(int ahorro, int sueldo) {
-
 		if (((ahorro * 0.1) / getUf()) > 150) {
 			return (int) (150 * getUf());
-		} else if ((ahorro * 0.1) <= 1000000 && ahorro >= 1000000) {
-			return (int) 1000000;
-		} else if (ahorro <= 1000000) {
+		} else if ((ahorro / getUf()) <= 35) {
 			return (int) ahorro;
+		} else if ((ahorro * 0.1 / getUf()) <= 35) {
+			return (int) (35 * getUf());
 		} else {
 			return (int) (ahorro * 0.1);
 		}
 	}
-	
-	 /**
-	 * Método para cacular el saldo restantes, despues de haber solicitado el 10% del ahorro en la AFP. 
-	 * Las reglas de negocio se pueden conocer en
+
+	/**
+	 * Método para cacular el saldo restantes, despues de haber solicitado el 10%
+	 * del ahorro en la AFP. Las reglas de negocio se pueden conocer en
 	 * https://www.previsionsocial.gob.cl/sps/preguntas-frecuentes-nuevo-retiro-seguro-10/
 	 * 
 	 * @param ahorro
@@ -48,11 +44,11 @@ public class Util {
 	 */
 	public static int getSaldo(int ahorro, int dxc) {
 		return (int) (ahorro - dxc);
-	}	
+	}
 
 	/**
-	 * Método para cacular el impuesto a pagar.
-	 * Las reglas de negocio se pueden conocer en
+	 * Método para cacular el impuesto a pagar. Las reglas de negocio se pueden
+	 * conocer en
 	 * https://www.previsionsocial.gob.cl/sps/preguntas-frecuentes-nuevo-retiro-seguro-10/
 	 * 
 	 * @param sueldo
@@ -73,8 +69,8 @@ public class Util {
 		} else {
 			return (int) 0;
 		}
-	}	
-	
+	}
+
 	/**
 	 * Método que retorna el valor de la UF. Este método debe ser refactorizado por
 	 * una integración a un servicio que retorne la UF en tiempo real. Por ejemplo
@@ -84,13 +80,12 @@ public class Util {
 	 */
 	public static double getUf() {
 		try {
-		
-		RestTemplate restTemplate = new RestTemplate();
 
-		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		Date date = new Date();
+			RestTemplate restTemplate = new RestTemplate();
 
-		
+			DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			Date date = new Date();
+
 			Uf valor = restTemplate.getForObject((new StringBuilder()).append("https://mindicador.cl/api/uf/")
 					.append(dateFormat.format(date)).toString(), Uf.class);
 
