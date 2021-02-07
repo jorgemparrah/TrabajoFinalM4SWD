@@ -33,7 +33,7 @@ class DevopsApplicationTests {
 	@Test
 	@DisplayName("NO EXCEDE TIMEOUT CALCULO UF API")
 	public void whenAssertingTimeout_thenNotExceeded() {
-		assertTimeout(ofSeconds(6), () -> {
+		assertTimeout(ofSeconds(60), () -> {
 			Util.getUf();
 		});
 	}
