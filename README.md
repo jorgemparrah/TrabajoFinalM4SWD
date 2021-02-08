@@ -10,7 +10,7 @@ Si tiene maven instalado localmente:
 
 `mvn test`
 
-### Ejecutar Test Unitarios
+### Ejecución de la Aplicacion
 
 Ejecutar en un terminal, desde la raiz de este repositorio, el siguiente comando:
 
